@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.CustomizedTables thead th {
+  background-color: #000;
+  color: #fff;
+}
+.inputfield label {
+  color: #000;
+  font-size: 20px;
+}

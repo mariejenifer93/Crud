@@ -56,7 +56,7 @@ export class signUpForm extends Component {
 
         if (testname !== '' && testpassword !== '' && testphone !== '' && testconfirm !== '') {
             this.setState({ toastmsg: toast.success('successful', { autoClose: 3000 }) });
-        } else {
+        } else if (testpassword !== testconfirm){
             this.setState({ toastmsg: '' });
         }
     }
@@ -98,46 +98,10 @@ export class signUpForm extends Component {
                         {this.state.phoneError ? <span style={{ color: "red" }}>phone number is required</span> : ''}
                     </div>
                     <div className='text-center'>
-                        <button type="submit" className="btn btn-primary mr-3 " onClick={this.submitValue}>Submit</button>
-                        <button type="button" className='btn btn-primary' data-toggle="modal" data-target="#myModal">Create</button>
+                        <button type="submit" className="btn btn-primary mr-3 " onClick={this.submitValue}>Submit</button>                        
                     </div>
                     <ToastContainer />
                 </form>
-
-                <div className="modal fade" id="myModal">
-                    <div className="modal-dialog modal-lg">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h4 className="modal-title">Create</h4>
-                                <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div className="modal-body">
-                                <div className="form-group">
-                                    <label htmlFor="uname">UserName</label>
-                                    <input type="text" maxLength={10} className="form-control" name="username" id="uname" placeholder="Enter your name" />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="password">Password</label>
-                                    <input type="text" className="form-control" name="pass" id="password" placeholder="Enter your Password" />
-                                </div>
-                                <div className='form-group'>
-                                    <label htmlFor="confirmpassword">Confirm Password</label>
-                                    <input type="text" className="form-control" name="confirmpass" id="confirmpassword" placeholder="Enter your Confirm Password" />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="phone">Phone Number</label>
-                                    <input type="tel" maxLength={12} className='form-control' name="phon" id="phone" placeholder='Enter Your Phone Number' />
-                                </div>
-                                <div className='text-center'>
-                                    <button type="button" className='btn btn-success'>Save</button>
-                                </div>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         )
     }
