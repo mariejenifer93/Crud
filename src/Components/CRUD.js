@@ -11,6 +11,7 @@ import axios from "axios";
 
 import {useNavigate} from "react-router-dom";
 
+
 function Crudcreate() {
 
     const [userName, setuserName] = useState("");
@@ -51,12 +52,18 @@ function Crudcreate() {
                 phone
             })
             navigate('/Read')
-        }
-        
+        }       
         
     }
+    const funPhone = (e) =>{
+        const re = /^[0-9\b]+$/;       
+        if (re.test(e.target.value)){
+            setphone(e.target.value);  
+        }        
+    }
+
     return (
-        <div className="align-items-center container d-flex justify-content-center" style={{height:'100vh'}}>
+        <div className="align-items-center container d-flex justify-content-center" style={{height:'100vh'}}>            
             <div className="modal-body">
                 <div className="mb-4">
                     <TextField
@@ -84,7 +91,8 @@ function Crudcreate() {
                         id="phone" name="phone" label="Phone Number" type="tel" fullWidth placeholder="Enter Your Phone Number"
                         InputLabelProps={{ shrink: true, }}
                         variant="standard" autoComplete="off" className="inputfield" value={phone}
-                        onChange={(e) => { setphone(e.target.value) }}
+                        // onChange={(e) => { setphone(e.target.value) }}
+                        onChange={funPhone}
                         onFocus={(e) => { setphoneErr('') }}
                         inputProps={{ maxLength: 12 }}
                     />
@@ -93,7 +101,7 @@ function Crudcreate() {
                 <div className='text-center'>
                     <Button variant="contained" color="success" className='mt-3 mb-3' onClick={savefield}>Save</Button>
                 </div>
-            </div>
+            </div>            
         </div>
     )
 }

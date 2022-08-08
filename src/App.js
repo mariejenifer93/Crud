@@ -8,6 +8,7 @@ import Notfound from "./notfound";
 import Crudcreate from './Components/CRUD';
 import Update from './Components/update';
 import Read from './Components/read';
+import View from "./Components/view";
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="Crudcreate" element={<Crudcreate/>}/>
           <Route exact path="Update" element={<Update/>}/>
           <Route exact path="Read" element={<Read/>}/>
+          <Route exact path="view" element={<View/>}/>
           <Route exact path="todo" element={<Todo/>}/>         
           <Route path='*' element={<Notfound />} />
         </Routes>    

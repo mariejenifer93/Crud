@@ -16,6 +16,10 @@ import { ToastContainer, toast } from 'react-toastify';
 // Textfield 
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
+//icons
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 function Read() {
     const navigate = useNavigate();
@@ -47,6 +51,14 @@ function Read() {
         localStorage.setItem('phone', phone)
     }
     // update end 
+    
+    const viewclick = ({ id, userName, password, phone }) =>{
+        navigate('/View');
+        localStorage.setItem('id', id)
+        localStorage.setItem('userName', userName)
+        localStorage.setItem('password', password)
+        localStorage.setItem('phone', phone)
+    }
 
     return (
         <>
@@ -56,11 +68,10 @@ function Read() {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>UserName</TableCell>
-                                <TableCell>Password</TableCell>
-                                <TableCell>Phone Number</TableCell>
-                                <TableCell>Action</TableCell>
-                                <TableCell>Action</TableCell>
+                                <TableCell sx={{width:'200px'}} >UserName</TableCell>
+                                <TableCell sx={{width:'200px'}} >Password</TableCell>
+                                <TableCell sx={{width:'200px'}} >Phone Number</TableCell>
+                                <TableCell sx={{width:'200px'}} >Action</TableCell>                                
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -70,15 +81,18 @@ function Read() {
                                         <TableCell>{data.userName}</TableCell>
                                         <TableCell>{data.password}</TableCell>
                                         <TableCell>{data.phone}</TableCell>
-                                        <TableCell><Button onClick={() => editUser(data)}>Edit</Button></TableCell>
-                                        <TableCell><Button onClick={() => deleteUser(data.id)}>Delete</Button></TableCell>
+                                        <TableCell>
+                                            <span className='mx-2'><EditIcon sx={{cursor:'pointer'}} onClick={() => editUser(data)} color="success"/></span>
+                                            <span className='mx-2'><VisibilityIcon sx={{cursor:'pointer'}} color="primary" onClick={() => viewclick(data)}/></span>
+                                            <span className='mx-2'><DeleteOutlineIcon sx={{cursor:'pointer'}} onClick={() => deleteUser(data.id)} color="error"/></span>                                                                                        
+                                        </TableCell>                                        
                                     </TableRow>
                                 ))}
 
                         </TableBody>
                     </Table>
-                </TableContainer>
-                <ToastContainer />
+                </TableContainer>                       
+                <ToastContainer/>
             </div>
         </>
 
