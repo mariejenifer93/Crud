@@ -53,12 +53,13 @@ export class signUpForm extends Component {
             this.setState({ confirmError: false });
             this.setState({ matchError: true });
         }
-
+        // wrong condition don't use  start
         if (testname !== '' && testpassword !== '' && testphone !== '' && testconfirm !== '') {
             this.setState({ toastmsg: toast.success('successful', { autoClose: 3000 }) });
         } else if (testpassword !== testconfirm){
             this.setState({ toastmsg: '' });
         }
+        // wrong condition don't use  end
     }
     submitValue = (event) => {
         event.preventDefault();

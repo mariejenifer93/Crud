@@ -32,7 +32,6 @@ function Crud() {
     const [passwordErr, setpasswordErr] = useState("");
     const [phoneErr, setphoneErr] = useState("");
 
-
     // const handvalue = (e) => {
     //     setInput({ ...input, [e.target.name]: e.target.value });
     // }
@@ -50,23 +49,23 @@ function Crud() {
         callGetAPI();
     }
 
-    const updateUser = ({ id, userName, password, phone }) => {
+    const editUser = ({ id, userName, password, phone}) => {
         localStorage.setItem('id', id)
         localStorage.setItem('userName', userName)
         localStorage.setItem('password', password)
-        localStorage.setItem('phone', phone)
-    }    
+        localStorage.setItem('phone', phone)       
+    }
 
     useEffect(() => {
         callGetAPI();
         setId(localStorage.getItem('id'))
         setuserName(localStorage.getItem('userName'))
         setpassword(localStorage.getItem('password'))
-        setphone(localStorage.getItem('phone'))
+        setphone(localStorage.getItem('phone'))       
     }, []);
     
 
-    const updatevalue = async () =>{
+    const updatevalue = async () =>{        
         await axios.put(`${API_URL}/${id}` , {
             userName,
             password,
@@ -196,7 +195,7 @@ function Crud() {
                                     <TableCell>{data.userName}</TableCell>
                                     <TableCell>{data.password}</TableCell>
                                     <TableCell>{data.phone}</TableCell>
-                                    <TableCell><Button data-toggle="modal" data-target="#myModal" onClick={() => updateUser(data)}>Edit</Button></TableCell>
+                                    <TableCell><Button data-toggle="modal" data-target="#myModal" onClick={() => editUser(data)}>Edit</Button></TableCell>
                                     <TableCell><Button onClick={() => deleteUser(data.id)}>Delete</Button></TableCell>                                    
                                 </TableRow>
                             ))
