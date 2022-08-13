@@ -23,6 +23,10 @@ function Crudcreate() {
     const [passwordErr, setpasswordErr] = useState("");
     const [phoneErr, setphoneErr] = useState("");
 
+    var test = 0;
+    var test1 = 0;
+    var test2 = 0;
+
     const savefield = (e) => {
         e.preventDefault();
         validation();
@@ -30,6 +34,7 @@ function Crudcreate() {
 
     const validation = async () => {
         if (userName) {
+            test = 1;
             setuserNameErr('');
         } else {
             setuserNameErr('Name Field is required');
@@ -37,22 +42,33 @@ function Crudcreate() {
         if (!passwordValidator(password)) {
             setpasswordErr('password should have minimum 8 character with the combination of uppercase,lowsercase, numbers and specialcharaters')
         } else {
+            test1 = 1;
             setpasswordErr('')
         }
         if (phone) {
+            test2 = 1;
             setphoneErr('');
         } else {
             setphoneErr('Phone Number Field is required');
         }
         
-        if(userName !== '' && password !=='' && phone !==''){
+        // if(userName !== '' && password !=='' && phone !==''){
+        //     await axios.post(API_URL,{
+        //         userName,
+        //         password,
+        //         phone
+        //     })
+        //     navigate('/Read')
+        // }       
+
+        if(test === 1 && test1 === 1 && test2 === 1){
             await axios.post(API_URL,{
                 userName,
                 password,
                 phone
             })
             navigate('/Read')
-        }       
+        }
         
     }
     const funPhone = (e) =>{

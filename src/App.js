@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes , Route} from "react-router-dom";
 import './App.css';
-import Home from './home'
+// import Home from './home'
 import SignupForm from './signUpForm';
 // import Crud from './CRUD';
 import Todo from './todo';
@@ -9,12 +9,13 @@ import Crudcreate from './Components/CRUD';
 import Update from './Components/update';
 import Read from './Components/read';
 import View from "./Components/view";
+import Login from "./login";
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/" element={<Login/>} />
           <Route exact path="SignupForm" element={<SignupForm />} />
           {/* <Route exact path="crud" element={<Crud/>}/> */}
           <Route exact path="Crudcreate" element={<Crudcreate/>}/>
