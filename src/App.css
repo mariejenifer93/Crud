@@ -45,3 +45,10 @@
   color: #000;
   font-size: 20px;
 }
+
+.login-page {
+  max-width: 600px;
+  border: 1px solid #d7cfcf;
+  padding: 2rem 3rem;
+  box-shadow: 0 0 5px #333;
+}
