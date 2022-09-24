@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import ImageList from '@mui/material/ImageList';
 // import ImageListItem from '@mui/material/ImageListItem';
 // class Home extends Component {
@@ -149,15 +150,15 @@ import React, { useState } from "react";
 // ];
 
 function Home() {
-  const [number1,Numbers1] = useState(0);
-  const [number2,setNumber2] = useState(0);
-  const [total,setTotal] = useState(number1 + number2);
-  function additional(){
-    setTotal(number1+number2);
-  };
+  // const [number1,Numbers1] = useState(0);
+  // const [number2,setNumber2] = useState(0);
+  // const [total,setTotal] = useState(number1 + number2);
+  // function additional(){
+  //   setTotal(number1+number2);
+  // };
   return (
     <>
-      <h1>Additional</h1>
+      {/* <h1>Additional</h1>
       <div>
         <input type="text" placeholder="enter the number" value={number1} onChange={(e)=>Numbers1(+e.target.value)}/>
       </div>
@@ -165,7 +166,17 @@ function Home() {
         <input type="text" placeholder="enter the number" value={number2} onChange={(e)=>setNumber2(+e.target.value)}/>
       </div>
       <div><button type="submit" onClick={additional}>Add Value</button></div>
-      <div>Value Show:{total}</div>
+      <div>Value Show:{total}</div> */}
+      {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>
+          <h1>Home</h1>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' , width:"100%"}}>
+          <Link style={{ marginRight: '2rem',}} to="/registration">Registration</Link>
+          <Link to="/login">Login</Link>
+        </div>
+      </div> */}
+      <h1>card view</h1>
     </>
   );
 }

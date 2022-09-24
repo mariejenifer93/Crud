@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import { emailValidator, passwordValidator } from './rgex';
 import {useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -71,6 +72,7 @@ function Login() {
       >
         <div className='login-page container'>
           <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Log In</h2>
+          <h5 style={{ textAlign: 'center', marginBottom: '3rem' }}>Don't have an account yet? <Link to="/registration">SignUp</Link></h5>
           <div className='mb-3'>
             <TextField
               fullWidth

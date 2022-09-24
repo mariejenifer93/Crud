@@ -63,7 +63,10 @@ function Read() {
     return (
         <>
             <div className="flex-column container d-flex justify-content-center" style={{ height: '100vh' }}>
-                <Button variant="contained" color="primary" className='mt-3 mb-3' style={{width:'150px'}} onClick={()=>{navigate('/Crudcreate')}}>Create</Button>
+                <div className="d-flex justify-content-between algin-items-center">
+                    <Button variant="contained" color="primary" className='mt-3 mb-3' style={{width:'150px'}} onClick={()=>{navigate('/Crudcreate')}}>Create</Button>
+                    <Button variant="contained" color="primary" className='mt-3 mb-3' style={{width:'150px'}} onClick={()=>{navigate('/home')}}>Card View</Button>
+                </div>
                 <TableContainer className='CustomizedTables table-striped' component={Paper}>
                     <Table aria-label="simple table">
                         <TableHead>

@@ -52,3 +52,8 @@
   padding: 2rem 3rem;
   box-shadow: 0 0 5px #333;
 }
+
+.error{
+  color: red;
+  margin-top: 16px;
+}
